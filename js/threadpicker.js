@@ -27,8 +27,6 @@ function selectThread(hexCode) {
   closest_thread = thread_list.find((thread) => thread.DMC == closest.id);
   thread_name.innerHTML = prettyName(closest_thread);
   thread_colour.style.backgroundColor = rgb_for_css(closest_thread);
-  //thread_colour.innerHTML = rgb_for_css(closest_thread);
-  //square.style.backgroundColor = "rgb(12,34,56)"
 }
 
 function calculate_distance(thread, chosen_rgb){
