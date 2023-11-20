@@ -9,6 +9,8 @@ function test() {
 
 function selectThread(hexCode) {
   const hexVal = document.getElementsByName('hexCode')[0].value;
+  const thread_colour = document.getElementById('colour_block');
+  const thread_name = document.getElementById('colour_name');
   const chosen_rgb = toRGB(hexVal);
   let distance_table = [];
 
@@ -22,7 +24,11 @@ function selectThread(hexCode) {
       ? current : previous_best;
   }, distance_table[0]);
 
-  console.log(thread_list.find((thread) => thread.DMC == closest.id));
+  closest_thread = thread_list.find((thread) => thread.DMC == closest.id);
+  thread_name.innerHTML = prettyName(closest_thread);
+  thread_colour.style.backgroundColor = rgb_for_css(closest_thread);
+  //thread_colour.innerHTML = rgb_for_css(closest_thread);
+  //square.style.backgroundColor = "rgb(12,34,56)"
 }
 
 function calculate_distance(thread, chosen_rgb){
@@ -53,4 +59,12 @@ function getRGB(thread){
 
 function getIdentifier(thread){
   return thread["DMC"];
+}
+
+function prettyName(thread){
+  return "DMC:" + thread["DMC"] + " " + thread["Thread Colour Name"]
+}
+
+function rgb_for_css(thread){
+  return "rgb(" + thread["Red"] + "," + thread["Green"] + "," + thread["Blue"] + ")";
 }
