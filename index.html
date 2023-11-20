@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HTML 5 Boilerplate</title>
+    <title>Thread Picker App</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/coloris.min.css"/>
+    <script src="js/coloris.min.js"></script>
     <script src="js/threadpicker.js"></script>
   </head>
   <body onload="test()">
-
+    <h1>Thread Picker</h1>
+    <input name="hexCode" type="text" data-coloris>
+    <button onclick="selectThread()">Get Thread</button>
   </body>
 </html>
