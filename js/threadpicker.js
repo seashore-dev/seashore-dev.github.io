@@ -1,13 +1,12 @@
 let thread_list;
+var url = "./data/dmc_to_rgb.json";
+fetch(url)
+  .then((response) => response.json())
+  .then((json) => {thread_list = json;});
 
-function test() {
-  var url = "./data/dmc_to_rgb.json"
-  fetch(url)
-    .then((response) => response.json())
-    .then((json) => {thread_list = json});
-}
+document.getElementById('find_thread').addEventListener('click', selectThread);
 
-function selectThread(hexCode) {
+function selectThread() {
   const hexVal = document.getElementsByName('hexCode')[0].value;
   const thread_colour = document.getElementById('colour_block');
   const thread_name = document.getElementById('colour_name');
@@ -24,7 +23,7 @@ function selectThread(hexCode) {
       ? current : previous_best;
   }, distance_table[0]);
 
-  closest_thread = thread_list.find((thread) => thread.DMC == closest.id);
+  const closest_thread = thread_list.find((thread) => thread.DMC == closest.id);
   thread_name.innerHTML = prettyName(closest_thread);
   thread_colour.style.backgroundColor = rgb_for_css(closest_thread);
 }
@@ -60,7 +59,7 @@ function getIdentifier(thread){
 }
 
 function prettyName(thread){
-  return "DMC:" + thread["DMC"] + " " + thread["Thread Colour Name"]
+  return "DMC:" + thread["DMC"] + " " + thread["Thread Colour Name"];
 }
 
 function rgb_for_css(thread){

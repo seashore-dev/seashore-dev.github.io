@@ -1,0 +1,15 @@
+{
+  "name": "seashore-dev.github.io",
+  "version": "1.0.0",
+  "description": "thread picker app",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "seashore-dev",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.54.0",
+    "eslint-plugin-react": "^7.33.2"
+  }
+}
